@@ -21,13 +21,18 @@ fun assert_true(value : bool, comment : string) =
 (* (x::y)::L *)
 (* 不可以， int list list 类型 *)
 (* [x, y] *)
-(* todo *)
+(* 如果 L 的大小为 2 的话可以匹配 *)
 
 (* 3.试写出与下列表述相对应的模式。如果没有模式与其对应，试说明原因 *)
 (* list of length 3 *)
+(* [x, y, z] *)
+(* x::L *)
 (* lists of length 2 or 3 *)
+(* 没有可以匹配的模式，表里面的元素大小必须一致 *)
 (* non-empty lists of pairs *)
+(* (x, y)::L *)
 (* Pairs with both components being non-empty lists *)
+(* (x::L, r::R) *)
 
 (* 4.分析下述程序段 *)
 val x: int = 3;
@@ -67,7 +72,8 @@ assert_true(res = [("hello", 1), ("world", 2)], "zip error!");
 
 (* unzip: (string * int) list -> string list * int list *)
 fun unzip([]: (string * int) list): string list * int list = ([], [])
-    | unzip((x, y)::L) = let val (M, N) = unzip(L)
+    | unzip((x, y)::L) =
+        let val (M, N) = unzip(L)
         in (x::M, y::N)
         end;
 

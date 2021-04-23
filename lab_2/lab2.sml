@@ -159,7 +159,7 @@ print(res);
 (* 则对于深度为 k 的非叶子结点 R，R = Node(s1, x, s2)，则 s1, s2 深度都小于 k *)
 (* 因此 revT(s1) 和 revT(s2) 的结果都正确，进而 revT(R) 的结果正确 *)
 (* work: O(n) *)
-(* span: 最坏情况下树的 n 个结点呈线性排列，span(n) = O(xn)；最好情况下树为完全二叉树，span(N) = O(logN) *)
+(* span: 最坏情况下树的 n 个结点呈线性排列，span(n) = O(n)；最好情况下树为完全二叉树，span(N) = O(logN) *)
 
 (* tree * int -> bool *)
 fun binarySearch(Empty: tree, _: int) = false |
